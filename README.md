@@ -31,7 +31,22 @@ From the above characteristic table, we can directly write the next state equati
 /* write all the steps invloved /*
 
 **PROGRAM**
-![Uploading Screenshot 2024-12-03 152526.png…]()
+
+```
+module unit6(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin 
+Q=(T&(~Q))|((~T)&Q);
+Qbar=~Q;
+end
+endmodule
+```
+
 /* 
 
 Program for flipflops and verify its truth table in quartus using Verilog programming.
