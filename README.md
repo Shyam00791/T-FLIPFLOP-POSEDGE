@@ -11,7 +11,7 @@ Quartus prime
 **THEORY**
 
 **T Flip-Flop**
-
+u
 T flip-flop is the simplified version of JK flip-flop. It is obtained by connecting the same input ‘T’ to both inputs of JK flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of T flip-flop is shown in the following figure.
 
 ![image](https://github.com/naavaneetha/T-FLIPFLOP-POSEDGE/assets/154305477/458a68fe-2d08-4a9d-ac4f-7ae0480ce0bd)
@@ -31,7 +31,20 @@ From the above characteristic table, we can directly write the next state equati
 /* write all the steps invloved /*
 
 **PROGRAM**
-![Uploading Screenshot 2024-12-03 152526.png…]()
+```
+module unit6(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin 
+Q=(T&(~Q))|((~T)&Q);
+Qbar=~Q;
+end
+endmodule
+```
 /* 
 
 Program for flipflops and verify its truth table in quartus using Verilog programming.
